@@ -37,6 +37,7 @@ class Wordcount():
         return print(self.dict)
 test = Wordcount("\"That's the password: 'PASSWORD 123'!\", cried the Special Agent.\nSo I fled.")
 print(test.count())
+
 #Exercism Community
 
 def count_words(sentence):

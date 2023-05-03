@@ -11,19 +11,21 @@
 #     Can you ask for a change value smaller than the smallest coin value?
 
 def change(value):
-    coin_list = [1, 5, 10, 25, 100]
-    remaining_coin = value
+    coin_list = [0.01, 0.05, 0.1, 0.25, 1.0]
+    remaining_coin = float(value)
     change_given = []
     if value < 0:
         raise ValueError("can't make negative change")
-    if value % coin_list[0] != 0:
+    if value < coin_list[0]:
         raise ValueError("can't make target with given coins")
 
-    while remaining_coin > 0:
+    while round(remaining_coin, 2) > 0.00:
         for i in range(len(coin_list)):
-            if coin_list[i] <= remaining_coin and coin_list[i] != coin_list[-1]:
+            if round(remaining_coin, 2) < coin_list[0]:
+                return change_given
+            elif coin_list[i] <= round(remaining_coin, 2) and coin_list[i] != coin_list[-1]:
                 continue
-            elif coin_list[i] > remaining_coin:
+            elif coin_list[i] > round(remaining_coin, 2):
                 remaining_coin -= coin_list[i-1]
                 change_given.append(coin_list[i-1])
                 break
@@ -31,6 +33,5 @@ def change(value):
                 remaining_coin -= coin_list[-1]
                 change_given.append(coin_list[-1])
                 break
-    return print(change_given)
+    return change_given
 
-change(155)

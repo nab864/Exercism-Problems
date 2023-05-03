@@ -110,16 +110,3 @@ class Bowling:
         print([frame.frame_score(self.next_throw_list(frame.num)) for frame in self.all_frames if frame.throws != []],
               self.get_total())
 
-
-test = Bowling()
-test.throw_ball(10)
-test.throw_ball(10)
-test.throw_ball(5)
-test.throw_ball(5)
-test.throw_ball(10)
-test.throw_ball(10)
-
-print(test.current_frame)
-# for frame in test.all_frames:
-#     print(frame.throws)
-#     print(frame.frame_score(test.next_throw_list(frame.num)))

@@ -7,7 +7,7 @@ class LeastAmountOfChangeFrame(CTkFrame):
         super().__init__(parent)
 
         return_button = CTkButton(self, text="Return",
-                                  command=lambda: controller.show_frame('MainFrame'))
+                                  command=lambda: [controller.show_frame('MainFrame'), self.update_page(False)])
         return_button.grid(row=0, column=0, padx=10, pady=10)
 
         label = CTkLabel(self, text="LeastAmountOfChange")
@@ -26,7 +26,7 @@ class LeastAmountOfChangeFrame(CTkFrame):
     def function(self, user_input):
         return change(user_input)
 
-    def update_page(self):
+    def update_page(self, clear=True):
         self.results.destroy()
-        self.results = CTkLabel(self, text=f"{self.function(float(self.entry.get()))}")
+        self.results = CTkLabel(self, text=f"{self.function(float(self.entry.get())) if not clear else 1}")
         self.results.grid(row=3, column=0, padx=10, pady=10)

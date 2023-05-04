@@ -1,4 +1,4 @@
-from customtkinter import *
+from customtkinter import CTk, CTkFrame
 from frames import *
 
 

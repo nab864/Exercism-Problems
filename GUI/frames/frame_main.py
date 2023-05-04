@@ -10,7 +10,8 @@ class MainFrame(CTkFrame):
         label.grid(row=0, column=1, padx=10, pady=10)
 
         button1 = CTkButton(self, text="LeastAmountOfChange",
-                            command=lambda: controller.show_frame('LeastChange'))
+                            command=lambda: controller.show_frame('LeastChange'),
+                            fg_color='green')
         button1.grid(row=1, column=0, padx=10, pady=10)
 
         button2 = CTkButton(self, text="AllYourBase",
@@ -42,5 +43,6 @@ class MainFrame(CTkFrame):
         button8.grid(row=3, column=1, padx=10, pady=10)
 
         button9 = CTkButton(self, text="RationalNumbers",
-                            command=lambda: controller.show_frame('UnderConstruction'))
+                            command=lambda: controller.show_frame('RationalNumber'),
+                            fg_color='green')
         button9.grid(row=3, column=2, padx=10, pady=10)

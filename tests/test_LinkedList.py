@@ -57,5 +57,14 @@ class TestLinkedList(unittest.TestCase):
         test.push(4)
         self.assertEqual(len(test), 4)
 
+    def test_delete(self):
+        test = LinkedList()
+        test.push(1)
+        test.push(2)
+        test.push(3)
+        test.delete(2)
+        self.assertEqual(test.first.after, Node(3))
+        self.assertEqual(test.last.before, Node(1))
+        test.delete(2)
 if __name__ == '__main__':
     unittest.main()

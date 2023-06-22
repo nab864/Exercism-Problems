@@ -73,3 +73,16 @@ class LinkedList:
         else:
             self.first = self.first.after
             self.first.before = None
+
+    def delete(self, value):
+        node = self.first
+        found = False
+        while node:
+            if node == Node(value):
+                node.before.after = node.after
+                node.after.before = node.before
+                found = True
+                break
+            node = node.after
+        if not found:
+            raise ValueError("Value not found")
